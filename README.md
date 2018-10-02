@@ -1,7 +1,5 @@
 
 
-![Demo](readme_images/demo.gif)
-
 ## BizBot 
     This isa simple chatbot using IBMWatson Conversation Assistant to respond some of the user queries.
 

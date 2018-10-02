@@ -1,0 +1,50 @@
+<html>
+
+<head>
+  <base href="/">
+  <title>Report Bot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta property="og:image" content="conversation.svg" />
+  <meta property="og:title" content="Conversation Chat Simple" />
+  <meta property="og:description" content="Sample application that shows how to use the Watson Assistant API to identify user intents"
+  />
+  <link rel="shortcut icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+
+<body>
+  
+  <div id="contentParent" class="responsive-columns-wrapper">
+    <div id="chat-column-holder" class="responsive-column content-column">
+      <div class="panel panel-primary">
+        <div class="panel-heading"><h3><span class="page-header">Applicaion Business Metric Reporting Bot</span></h3></div>
+      <div class="chat-column">
+        <div id="scrollingChat"></div>
+        <label for="textInput" class="inputOutline">
+          <input id="textInput" class="input responsive-column" placeholder="Type something" type="text" onkeydown="ConversationPanel.inputKeyDown(event, this)" autofocus>
+        </label>
+       </div>
+     </div>
+
+    </div>
+    <div id="payload">
+      <div id="payload-initial-message">
+        
+      </div>
+      <div id="payload-request" class="payload"></div>
+      <div id="payload-response" class="payload"></div>
+    </div>
+  </div>
+
+
+  <script src="js/common.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/conversation.js"></script>
+ <!--  <script src="js/payload.js"></script> -->
+  <script src="js/global.js"></script>
+  <script type="text/javascript" src="https://cdn.rawgit.com/watson-developer-cloud/watson-developer-cloud.github.io/master/analytics.js"></script>
+</body>
+
+</html>

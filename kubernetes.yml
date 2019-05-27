@@ -1,35 +1,35 @@
-#apiVersion: extensions/v1beta1
-#kind: Deployment
-#metadata:
-#  name: redis
-#spec:
-#  replicas: 1
-#  template:
-#    metadata:
-#      labels:
-#        app: redis
-#    spec:
-#      containers:
-#      - image: redis
-#        name: redis
-#      restartPolicy: Always
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: redis
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - image: redis
+        name: redis
+      restartPolicy: Always
 ---
 
 
-#apiVersion: v1
-#kind: Service
-#metadata:
-#  labels:
-#    app: redis
-#  name: redis
-#spec:
-#  clusterIP: None
-#  ports:
-#  - name: headless
-#    port: 55555
- #   targetPort: 0
-#  selector:
-#    app: redis
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: redis
+  name: redis
+spec:
+  clusterIP: None
+  ports:
+  - name: headless
+    port: 55555
+    targetPort: 0
+  selector:
+    app: redis
 ---
 
 
@@ -46,7 +46,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: registry.ng.bluemix.net/<namespace>/bizzbot_app
+        image: registry.ng.bluemix.net/<namespace>/bezzbot_app
         ports:
         - containerPort: 80
         - containerPort: 8080
@@ -54,17 +54,17 @@ spec:
 ---
 
 
-#apiVersion: v1
-#kind: Service
-#metadata:
-#  labels:
-#    app: chatter-service
-#  name: chatter-service
-#spec:
-#  type: NodePort
-#  ports:
-#  - name: "80"
-#    port: 80
-#    nodePort: 30089
-#  selector:
-#    app: web
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: bezzbot-service
+  name: bezzbot-service
+spec:
+  type: NodePort
+  ports:
+  - name: "80"
+    port: 80
+    nodePort: 30089
+  selector:
+    app: web

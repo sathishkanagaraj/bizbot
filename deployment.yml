@@ -17,17 +17,17 @@ spec:
         ports:
         - containerPort: 80
 ---
-apiVersion: v1
-kind: Service
-metadata:
-  name: bezbot-service
-  labels:
-    app: bezbot-service
-spec:
-  type: NodePort
-  ports:
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: bezbot-service
+#  labels:
+#    app: bezbot-service
+#spec:
+#  type: NodePort
+#  ports:
     # the port that this service should serve on
-    - port: 80
+#    - port: 80
   # label keys and values that must match in order to receive traffic for this service
-  selector:
-    app: bezzbot-app
+#  selector:
+#    app: bezzbot-app

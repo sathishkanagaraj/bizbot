@@ -1,5 +1,5 @@
 applications:
-- name: BizzyBot
+- name: BizzyBotv1
   command: npm start
   path: .
   memory: 256M

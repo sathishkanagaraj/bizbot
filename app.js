@@ -19,7 +19,7 @@
 var express = require('express'); // app server
 var bodyParser = require('body-parser'); // parser for post requests
 var AssistantV1 = require('watson-developer-cloud/assistant/v1'); // watson sdk
-var http = require('http');
+var https = require('https');
 var fs = require('fs');
 var download = require('download-file');
 
@@ -96,7 +96,7 @@ function updateMessage(input, response) {
     if(response.output.text=='ACCOUNTS_CLOSED_REPORT'){
       // to save files in local file system
       var file = fs.createWriteStream('AccountsClosedCount.pdf');
-      var req = http.get('http://www.africau.edu/images/default/sample.pdf', function(response) {
+      var req = https.get('https://github.com/sathishkanagaraj/bizbot/raw/master/output.pdf', function(response) {
         if(response.statusCode === 200) {
 
         response.pipe(file);
@@ -109,11 +109,11 @@ function updateMessage(input, response) {
 }
 });
       // download file from link
-      response.output.text='Download the report <a href="http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf" target="_blank">click here</a>';
+      response.output.text='Download the report <a href="https://github.com/sathishkanagaraj/bizbot/raw/master/output.pdf" target="_blank">click here</a>';
 
     }
     else if (response.output.text == 'ACCOUNTS_CLOSED_COUNT') {
-      response.output.text='<h2>Accounts Closed</h2><p>List of  accounts closed today accross all branches</p><table style="width:100%"><tr><th>Branch Name</th><th colspan="2">No. of Accounts closed</th></tr><tr><td>Adayar</td><td>40</td><td>20 - in progress</td></tr><tr><td>Ambattur</td><td>54</td><td>2 - in progress</td></tr><tr><td>Porur</td><td>25</td><td> - </td></tr></table>'
+      response.output.text='<h2>Accounts Closed</h2><p>List of  accounts closed today accross all branches</p><table style="width:100%"><tr><th>Branch Name</th><th colspan="2">No. of Accounts closed</th></tr><tr><td>Birmingham Broad Street</td><td>40</td><td>20 - in progress</td></tr><tr><td>Pocklington</td><td>54</td><td>2 - in progress</td></tr><tr><td>Campbeltown</td><td>25</td><td> - </td></tr></table>'
     }
     return response;
   }
